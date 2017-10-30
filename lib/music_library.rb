@@ -48,7 +48,7 @@ class MusicLibraryController
     song_listings = song_listings_array.sort {|a, b| a[1] <=> b[1]}.each do |song_info|
       puts "#{n += 1}. #{song_info.join(" - ")}"
     end
-    song_listings 
+    song_listings
   end
 
   def list_artists
@@ -99,7 +99,7 @@ class MusicLibraryController
     list_songs
     input = gets.strip
     list_songs.detect do |song|
-      input == 
+      input ==
   end
 
 end
