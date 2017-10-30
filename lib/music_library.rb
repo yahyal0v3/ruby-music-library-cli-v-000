@@ -63,9 +63,8 @@ class MusicLibraryController
     genre_listings = Genre.all.collect do |genre|
       genre.name
     end
-    n = 0
-    genre_listings.sort.each do |genre|
-      puts "#{n += 1}. #{genre}"
+    genre_listings.sort.each_with_index do |genre, index|
+      puts "#{index += 1}. #{genre}"
     end
   end
 
