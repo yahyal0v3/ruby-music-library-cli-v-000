@@ -76,7 +76,8 @@ class MusicLibraryController
     if Artist.find_by_name(input)
       artist_instance = Artist.find_by_name(input)
       songs = artist_instance.songs.collect { |song| "#{song.name} - #{song.genre.name}"}
-      songs.sort.each_with_index {|song_info| puts "#{index += 1}. #{song_info}"}
+      n = 0
+      songs.sort.each {|song_info| puts "#{n += 1}. #{song_info}"}
     end
   end
 
