@@ -42,7 +42,7 @@ class MusicLibraryController
 
   def list_songs
     song_listings_array = Song.all.collect do |song|
-      [["#{song.artist.name}"], ["#{song.name}"], ["#{song.genre.name}"]]
+      ["#{song.artist.name}", "#{song.name}", "#{song.genre.name}"]
     end
     song_listings_array.sort {|a, b| a[1] <=> b[1]}.each_with_index do |song_info, index|
       puts "#{index += 1}. #{song_info.join(" - ")}"
@@ -95,9 +95,11 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
     list_songs
     input = gets.strip
+    var = nil
     list_songs.each do |song|
       if input == list_songs.index(song) + 1
-        puts "Playing #{list_songs[3][1]} by #{list_songs[3][0]} "
+        puts "Playing #{list_songs[3][1]} by #{list_songs[3][0]}"
+        var = "Playing #{list_songs[3][1]} by #{list_songs[3][0]}"
       end
     end
   end
