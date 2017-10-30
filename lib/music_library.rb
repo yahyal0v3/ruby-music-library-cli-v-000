@@ -56,9 +56,8 @@ class MusicLibraryController
     artist_listings = Artist.all.collect do |artist|
       artist.name
     end
-    n = 0
-    artist_listings.sort.each do |artist|
-      puts "#{n += 1}. #{artist}"
+    artist_listings.sort.each_with_index do |artist, index|
+      puts "#{index += 1}. #{artist}"
     end
   end
 
@@ -77,8 +76,7 @@ class MusicLibraryController
     if Artist.find_by_name(input)
       artist_instance = Artist.find_by_name(input)
       songs = artist_instance.songs.collect { |song| "#{song.name} - #{song.genre.name}"}
-      n = 0
-      songs.sort.each {|song_info| puts "#{n += 1}. #{song_info}"}
+      songs.sort.each_with_index {|song_info| puts "#{index += 1}. #{song_info}"}
     end
   end
 
@@ -88,8 +86,7 @@ class MusicLibraryController
     if Genre.find_by_name(input)
       genre_instance = Genre.find_by_name(input)
       songs = genre_instance.songs.collect { |song| "#{song.artist.name} - #{song.name}"}
-      n = 0
-      songs.sort {|a, b| a[1] <=> b[1]}.each {|song_info| puts "#{n += 1}. #{song_info}"}
+      songs.sort {|a, b| a[1] <=> b[1]}.each_with_index {|song_info, index| puts "#{index += 1}. #{song_info}"}
     end
   end
 
