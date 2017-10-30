@@ -95,8 +95,10 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
     list_songs
     input = gets.strip
-    list_songs.detect do |song|
-      input == list_songs.index(song) + 1
+    list_songs.each do |song|
+      if input == list_songs.index(song) + 1
+        puts "Playing #{list_songs[3][1]} by #{list_songs[3][0]} "
+      end
     end
   end
 
