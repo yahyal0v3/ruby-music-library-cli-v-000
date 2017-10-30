@@ -44,11 +44,9 @@ class MusicLibraryController
     song_listings_array = Song.all.collect do |song|
       [["#{song.artist.name}"], ["#{song.name}"], ["#{song.genre.name}"]]
     end
-    n = 0
-    song_listings_array.sort {|a, b| a[1] <=> b[1]}.each do |song_info|
-      puts "#{n += 1}. #{song_info.join(" - ")}"
+    song_listings_array.sort {|a, b| a[1] <=> b[1]}.each_with_index do |song_info, index|
+      puts "#{index += 1}. #{song_info.join(" - ")}"
     end
-    "#{n += 1}. #{song_info.join(" - ")}"
   end
 
   def list_artists
