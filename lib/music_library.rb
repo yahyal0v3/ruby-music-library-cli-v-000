@@ -40,11 +40,14 @@ class MusicLibraryController
     end
   end
 
-  def list_songs
-    song_listings_array = Song.all.collect do |song|
+  def display_song_library
+    Song.all.collect do |song|
       ["#{song.artist.name}", "#{song.name}", "#{song.genre.name}"]
     end
-    song_listings_array.sort {|a, b| a[1] <=> b[1]}.each_with_index do |song_info, index|
+  end
+
+  def list_songs
+    display_song_library.sort {|a, b| a[1] <=> b[1]}.each_with_index do |song_info, index|
       puts "#{index += 1}. #{song_info.join(" - ")}"
     end
   end
@@ -94,9 +97,9 @@ class MusicLibraryController
     binding.pry
     puts "Which song number would you like to play?"
     input = gets.strip
-    list_songs.each do |song|
+    Song.all.each do |song|
       if input == list_songs.index(song) + 1
-        puts "Playing #{list_songs[3][1]} by #{list_songs[3][0]}"
+        puts "Playing #{song.name} by #{song.artist.name}"
       end
     end
   end
