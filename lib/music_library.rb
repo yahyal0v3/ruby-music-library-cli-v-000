@@ -97,9 +97,12 @@ class MusicLibraryController
     binding.pry
     puts "Which song number would you like to play?"
     input = gets.strip
-    display_all_songs.each do |song_listing|
-      if input == display_all_songs.index(song_listing) + 1
+    var = nil
+    sorted_listings = display_all_songs.sort {|a, b| a[1] <=> b[1]}
+    sorted_listings.each do |song_listing|
+      if input == sorted_listings.index(song_listing) + 1
         puts "Playing #{song_listing[1]} by #{song_listing[0]}"
+        var = "Playing #{song_listing[1]} by #{song_listing[0]}"
       end
     end
   end
