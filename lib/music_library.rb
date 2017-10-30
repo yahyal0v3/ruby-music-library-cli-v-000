@@ -104,4 +104,6 @@ class MusicLibraryController
     end
   end
 
+  binding.pry 
+
 end
