@@ -96,7 +96,7 @@ class MusicLibraryController
     list_songs
     input = gets.strip
     list_songs.detect do |song|
-      input
+      input == list_songs.index(song) + 1
     end
   end
 
