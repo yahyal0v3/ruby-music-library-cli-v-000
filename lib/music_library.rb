@@ -96,9 +96,9 @@ class MusicLibraryController
   def play_song
     puts "Which song number would you like to play?"
     input = gets.strip
-    display_all_songs.each do |song|
-      if input == display_all_songs.index(song) + 1
-        puts "Playing  by "
+    display_all_songs.each do |song_listing|
+      if input == display_all_songs.index(song_listing) + 1
+        puts "Playing #{song_listing[1]} by #{song_listing[0]}"
       end
     end
   end
