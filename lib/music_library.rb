@@ -94,7 +94,6 @@ class MusicLibraryController
   end
 
   def play_song
-    binding.pry
     puts "Which song number would you like to play?"
     input = gets.strip
     display_all_songs.each do |song|
