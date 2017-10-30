@@ -95,7 +95,7 @@ class MusicLibraryController
 
   def play_song
     puts "Which song number would you like to play?"
-    input = gets.strip
+    input = gets.strip.to_i
     sorted_listings = display_all_songs.sort {|a, b| a[1] <=> b[1]}
     sorted_listings.each do |song_listing|
       if input == sorted_listings.index(song_listing) + 1
